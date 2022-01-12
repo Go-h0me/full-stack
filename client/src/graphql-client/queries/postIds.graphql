@@ -1,0 +1,7 @@
+query PostIds($limit: Int!, $sursor: String) {
+  posts(limit: $limit, cursor: $cursor) {
+    paginatedPosts {
+      id
+    }
+  }
+}

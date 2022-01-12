@@ -1,0 +1,29 @@
+import { gql } from "@apollo/client";
+
+export const registerMutation = gql`
+mutation Register($registerInput: RegisterInput!
+) {
+    register(
+
+    registerInput: $registerInput
+    )
+     {
+         ...userMutationResponse
+    #     username:"",
+    #     email:"",
+    #     password:""
+    }
+    #  {
+    #     code
+    #     success
+    #     message
+    #     user {
+    #        ...userInfo
+    #     }
+    #     errors {
+    #        ...fieldError
+    #     }
+    # }
+}
+
+`

@@ -1,0 +1,16 @@
+{
+      "type": "postgres",
+    "host":"localhost",
+    "port":5432,
+     "username": "process.env.DB_USERNAME_DEV",
+    "password": "process.env.DB_PASSWORD_DEV",
+    "database" : "full-stack",
+    "entities":["dist/entities/*.js"],
+    "migration":["dist/migrations/*.js"]
+    
+}
+
+// se tao ra tat c cac bang trong 1 file ts khac cut paste vao migration
+
+
+// co thể tìm tài liệu hướng dẫn trong typeorm

@@ -1,0 +1,11 @@
+fragment usermutationStatuses on UserMutationResponse {
+  code
+  success
+  message
+}
+
+fragment postMutationStatuses on PostMutaitonResponse {
+  code
+  success
+  message
+}
