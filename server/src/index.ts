@@ -1,3 +1,5 @@
+
+require ('dotenv').config() 
 import "reflect-metadata";
 import express from "express";
 import { createConnection } from "typeorm";
@@ -9,8 +11,9 @@ import { ApolloServer } from "apollo-server-express";
 // import { ApolloServerPluginLandingPageGraphQLPlayground } from "apollo-server-core";
 import { UserResolver } from "./resolvers/user";
 import mongoose from "mongoose";
-const session = require("express-session");
-const MongoStore = require("connect-mongo");
+import session from "express-session";
+// const MongoStore = require("connect-mongo");
+import MongoStore from "connect-mongo";
 import { COOKIE_NAME, __prod__ } from "./constants";
 import { Context } from "./types/context";
 import { PostResolver } from "./resolvers/post";
@@ -28,7 +31,7 @@ const main = async () => {
     ...(__prod__
       ? { url: process.env.DATABASE_URL }
       : {
-          database: "deuk8othniln4l",
+          database: "full-stack",
           username: process.env.DB_USERNAME_DEV,
           password: process.env.DB_PASSWORD_DEV,
         }),
@@ -38,7 +41,7 @@ const main = async () => {
       ? {
           extra: {
             ssl: {
-              rejectUnauthoied: false,
+              rejectUnauthorized: false,
             },
           },
           ssl: true,
@@ -46,7 +49,7 @@ const main = async () => {
       : {}),
     ...(__prod__ ? {} : { synchronize: true }),
     entities: [User, Post, Upvote],
-    migrations: [path.json(__dirname, "/migrations/*")],
+    migrations: [path.join(__dirname, "/migrations/*")],
   });
   if (__prod__) await connection.runMigrations();
 
@@ -65,8 +68,8 @@ const main = async () => {
     })
   );
   //SESSION/COOKIE STORE loi ket noi database
-  const mongoUrl = `mongodb+srv://${process.env.SESSION_DB_USERNAME_DEV_PROD}:${process.env.SESSION_DB_PASSWORD_DEV_PROD}@cluster0.n5txx.mongodb.net/myFirstDatabase?retryWrites=true&w=majority`;
-  await mongoose.connect(mongoUrl, {
+  const mongoUrl = `mongodb+srv://${process.env.SESSION_DB_USERNAME_DEV_PROD}:${process.env.SESSION_DB_PASSWORD_DEV_PROD}@cluster0.n5txx.mongodb.net/myFirstDatabase?retryWrites=true&w=majority`
+ await mongoose.connect(mongoUrl, {
     useCreateIndex: true,
     useNewUrlParser: true,
     useUnifiedTopology: true,

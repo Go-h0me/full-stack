@@ -29,13 +29,11 @@ export class User extends BaseEntity {
   @Column({ unique: true })
   password!: string;
 
+  @OneToMany(() => Post, (post) => post.user)
+  post: Post[];
 
-  @OneToMany(() => Post,post => post.user)
-  post: Post[]
-
-  @OneToMany(_to => Upvote,upvote=> upvote.user)
-  upvote:Upvote[]
-
+  @OneToMany((_to) => Upvote, (upvote) => upvote.user)
+  upvote: Upvote[];
 
   @Field()
   @CreateDateColumn()

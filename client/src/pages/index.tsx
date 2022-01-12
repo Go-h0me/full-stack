@@ -52,7 +52,7 @@ const Index = () => {
                   </NextLink>
                   <Text>posted by {post.user.username}</Text>
                   <Flex align='center'>
-                    <Text ml={4}>{post.textSnippet}</Text>
+                    <Text mt={4}>{post.textSnippet}</Text>
                   </Flex>
                   <Box ml='auto'>
                     <PostEditDeleteButtons
@@ -69,7 +69,7 @@ const Index = () => {
         {data?.posts?.hasMore && (
           <Flex>
             <Button
-              mr='auto'
+              m='auto'
               my={8}
               isLoading={loadingMorePosts}
               onClick={loadMorePosts}

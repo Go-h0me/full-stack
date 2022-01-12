@@ -103,8 +103,8 @@ const ChangePassword = () => {
                     <Box color='red' mr={2}>
                       {tokenError}
                     </Box>
-                    <NextLink href='/login'>
-                      <Link ml='auto'>Back to Login</Link>
+                    <NextLink href='/forget-password'>
+                      <Link >Goback to Forgot Password</Link>
                     </NextLink>
                   </Flex>
                 )}
@@ -114,7 +114,7 @@ const ChangePassword = () => {
                   mt={4}
                   isLoading={isSubmitting}
                 >
-                  Send Reset Password Email
+                  Change Password
                 </Button>
               </Form>
             );

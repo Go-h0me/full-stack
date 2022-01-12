@@ -1,5 +1,5 @@
-import { Box, Button, Flex, Spinner, useToast } from "@chakra-ui/react";
 import { Formik, Form, FormikHelpers } from "formik";
+import { Box, Button, Flex, Spinner, useToast } from "@chakra-ui/react";
 import InputField from "../components/InputField";
 import Wrapper from "../components/Wrapper";
 
@@ -41,7 +41,7 @@ const Register = () => {
 
   const [registerUser, { loading: _registerUserLoading, error }] =
     useRegisterMutation();
-    const toast =useToast();
+  const toast = useToast();
 
   //   = useMutation<
   //     { register: UserMutationResponse },
@@ -81,8 +81,8 @@ const Register = () => {
   };
 
   // {data && data.register.success && (
-            // <p>Registered successfylly{JSON.stringify}</p>
-          // )}
+  // <p>Registered successfylly{JSON.stringify}</p>
+  // )}
   return (
     <>
       {authLoading || (!authLoading && authData?.me) ? (
@@ -91,41 +91,41 @@ const Register = () => {
         </Flex>
       ) : (
         <Wrapper size='small'>
-          {error && <p>Failed to register</p>}
-         
+          {error && <p>Failed to register.Internal server error</p>}
+
           <Formik initialValues={initialValues} onSubmit={onRegisterSubmit}>
             {({ isSubmitting }) => (
               <Form>
+                <InputField
+                  name='username'
+                  placeholder='Username'
+                  label='Username'
+                  type='text'
+                />
+                <Box mt={4}>
                   <InputField
-                    name='username'
-                    placeholder='Username'
-                    label='Username'
+                    name='email'
+                    placeholder='Email'
+                    label='Email'
                     type='text'
                   />
-                  <Box mt={4}>
-                    <InputField
-                      name='email'
-                      placeholder='Email'
-                      label='Email'
-                      type='text'
-                    />
-                  </Box>
-                  <Box mt={4}>
-                    <InputField
-                      name='password'
-                      placeholder='Password'
-                      label='Password'
-                      type='password'
-                    />
-                  </Box>
-                  <Button
-                    type='submit'
-                    colorScheme='teal'
-                    mt={4}
-                    isLoading={isSubmitting}
-                  >
-                    Register
-                  </Button>
+                </Box>
+                <Box mt={4}>
+                  <InputField
+                    name='password'
+                    placeholder='Password'
+                    label='Password'
+                    type='password'
+                  />
+                </Box>
+                <Button
+                  type='submit'
+                  colorScheme='teal'
+                  mt={4}
+                  isLoading={isSubmitting}
+                >
+                  Register
+                </Button>
               </Form>
             )}
           </Formik>

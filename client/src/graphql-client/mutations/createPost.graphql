@@ -1,7 +1,6 @@
 mutation CreatePost($createPostInput: CreatePostInput!) {
   createPost(createPostInput: $createPostInput) {
-   
-   #lay tai cac file rut gon cac file
-   ...postMutationResponse 
+    #lay tai cac file rut gon cac file
+    ...postMutationResponse
   }
 }

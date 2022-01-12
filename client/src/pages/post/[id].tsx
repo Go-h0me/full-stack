@@ -22,7 +22,7 @@ import { GetStaticPaths, GetStaticProps } from "next";
 import { limit } from "../index";
 import { addApolloState, initializeApollo } from "../../lib/apolloClient";
 import NextLink from "next/link";
-import PostEditDeleteButtons from "src/components/PostEditDeleteButtons";
+import PostEditDeleteButtons from "../../components/PostEditDeleteButtons";
 
 const Post = () => {
   const router = useRouter();
@@ -101,7 +101,7 @@ export const getStaticProps: GetStaticProps<
     variables: { id: params?.id },
   });
 
-  const { data } = usePostQuery({ variables: { id: params!.id as string } });
+  // const { data } = usePostQuery({ variables: { id: params!.id as string } });
   return addApolloState(apolloClient, { props: {} });
 };
 

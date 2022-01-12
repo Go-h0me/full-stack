@@ -1,4 +1,4 @@
-query Posts($limit: Init!, $sursor: String) {
+query Posts($limit: Init!, $cursor: String) {
   posts(limit: $limit, cursor: $cursor) {
     totalCount
     cursor

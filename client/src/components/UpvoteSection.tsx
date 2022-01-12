@@ -3,7 +3,6 @@ import { Flex, IconButton } from "@chakra-ui/react";
 import { useState } from "react";
 import {
   PostWithUserInfoFragment,
-  useMeQuery,
   useVoteMutation,
   VoteType,
 } from "../generated/graphql";
@@ -19,7 +18,6 @@ enum VoteTypeValues {
 
 const UpvoteSection = ({ post }: UpvoteSectionProps) => {
   // const router = useRouter();
-  const { data: meData } = useMeQuery();
   const [vote, { loading }] = useVoteMutation();
 
   const [loadingState, setLoadingState] = useState<
@@ -60,7 +58,6 @@ const UpvoteSection = ({ post }: UpvoteSectionProps) => {
         colorScheme={
           post.voteType === VoteTypeValues.Upvote ? "green" : undefined
         }
-        disabled={!meData?.me}
       />
       {post.points}
       <IconButton

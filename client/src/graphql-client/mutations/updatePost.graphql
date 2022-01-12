@@ -1,4 +1,4 @@
-mutaiton UpdatePost($updatePostInput: UpdatePostInput!) {
+mutation UpdatePost($updatePostInput: UpdatePostInput!) {
     updatePost(updatePostInput: $updatePostInput) {
         ...postMutaitionResponse
     }

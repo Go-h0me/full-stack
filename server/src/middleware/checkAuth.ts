@@ -2,7 +2,7 @@ import { Context } from "../types/Context";
 import { MiddlewareFn } from "type-graphql";
 import { AuthenticationError } from "apollo-server-express";
 
-export const checkAuth: MiddlewareFn<Context> = async (
+export const checkAuth: MiddlewareFn<Context> =  (
   { context: { req } },
   next
 ) => {
@@ -11,5 +11,5 @@ export const checkAuth: MiddlewareFn<Context> = async (
       "Not authenticated to perform GraphQL operations "
     );
 
-    return next
+    return next()
 };

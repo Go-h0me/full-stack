@@ -67,7 +67,7 @@ const PostEditDeleteButtons = ({
       <IconButton
         icon={<DeleteIcon />}
         aria-label='delete'
-        colorSchema='red'
+        colorScheme='red'
         onClick={onPostDelete.bind(this, postId)}
       />
     </Box>

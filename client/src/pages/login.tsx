@@ -14,7 +14,7 @@ import {
   useLoginMutation,
 } from "../generated/graphql";
 import { mapFieldErrors } from "../helpers/mapFieldErrors";
-import { initializeApollo } from "src/lib/apolloClient";
+import { initializeApollo } from "../lib/apolloClient";
 
 const Login = () => {
   const router = useRouter();

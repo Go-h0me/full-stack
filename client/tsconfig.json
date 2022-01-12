@@ -6,11 +6,9 @@
       "dom",
       "dom.iterable",
       "esnext",
-      "esnext.asynciterable"
     ],
     "skipLibCheck": true,
     "sourceMap": true,
-    "outDir": "./dist",
     "moduleResolution": "node",
     "strict": true,
     "removeComments": true,
